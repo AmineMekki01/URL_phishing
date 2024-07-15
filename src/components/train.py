@@ -2,9 +2,10 @@
 Module : train.py
 Description : This module contains the Trainer class which is responsible for training the models and evaluating the performance.
 """
+import os
+import shutil
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
 from pyspark.sql import DataFrame
-
 from src.components.models import Models, StackingModels
 from src import logger
 
@@ -118,6 +119,9 @@ class Trainer:
             Exception: If an error occurs while saving the model.
         """
         try:
+            if os.path.exists(model_path):
+                shutil.rmtree(model_path)
+            
             model.write().overwrite().save(model_path)
             logger.info(f"Model saved at: {model_path}")
         except Exception as e:

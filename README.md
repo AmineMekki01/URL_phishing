@@ -1,6 +1,6 @@
-# test_technique_mailinblack
+# URL_PHISHING
 
-## Project Overview
+# Project Overview
 
 This project aims to detect phishing URLs using machine learning models. It includes a complete pipeline for data preprocessing, feature engineering, model training, and prediction. The project also offers a web application for ease of interaction, including a React-based frontend and a FastAPI backend.
 
@@ -30,6 +30,13 @@ conda activate test
 
 ```
 pip install -r requirements.txt
+```
+
+If you try the training you might wanna give some permission to the user so as it overwite the models:
+
+```
+sudo chown -R $USER:$USER ~/Desktop/URL_phishing/artifacts/models
+sudo chmod -R 755 ~/Desktop/URL_phishing/artifacts/models
 ```
 
 ### Running the Code
@@ -111,8 +118,6 @@ Keep all settings as default. To have a smooth testing and not waste too much ti
 #### 3.2 Inference
 
 For inference, provide the URL and choose the model and stacking options.
-
-test_technique_mailinblack
 
 ## Project Structure
 
